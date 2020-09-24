@@ -29,9 +29,9 @@
 // ------------------------------------------------------------------------------
 
 /**
- * Error handling function
+ * Passes in an array to check if it's content is valid (consists of only numbers) otherwise it will throw custom error messages.
  *
- * @param {anyArr} anyArr - the array to be validated
+ * @param {Array} anyArr - the array to be validated.
  * @throws {TypeError} The passed argument is not an array.
  * @throws {Error} The passed array contains no elements.
  * @throws {TypeError} The passed array may only contain valid numbers.
@@ -49,14 +49,14 @@ export const errorHandling = function (anyArr) {
 }
 
 /**
- * Returns the average value
+ * Returns the average value.
  *
- * @param {*} numbers
+ * @param {number[]} numbers - The passed array of numbers.
  * @throws {TypeError} The passed argument is not an array.
  * @throws {Error} The passed array contains no elements.
  * @throws {TypeError} The passed array may only contain valid numbers.
+ * @returns {number} as the average value of the parameter.
  */
-
 export const average = function (numbers) {
   errorHandling(numbers)
   const total = numbers.reduce(function (a, b) {
@@ -67,13 +67,13 @@ export const average = function (numbers) {
 }
 
 /**
- * Function to return maximum value
+ * Function to return maximum value.
  *
- * @param {numbers} numbers
+ * @param {number[]} numbers - The passed array of numbers.
  * @throws {TypeError} The passed argument is not an array.
  * @throws {Error} The passed array contains no elements.
  * @throws {TypeError} The passed array may only contain valid numbers.
- * @returns {maxValue} as the maximum value in the array
+ * @returns {number} as the maximum value in the parameter.
  */
 export const maximum = function (numbers) {
   errorHandling(numbers)
@@ -83,13 +83,13 @@ export const maximum = function (numbers) {
 }
 
 /**
- * Function to return median value
+ * Function to return median value.
  *
- * @param {number[]} numbers
+ * @param {number[]} numbers - The passed array of numbers.
  * @throws {TypeError} The passed argument is not an array.
  * @throws {Error} The passed array contains no elements.
  * @throws {TypeError} The passed array may only contain valid numbers.
- * @returns {medValue} as the median value of the array
+ * @returns {number} as the median value of the parameter.
  */
 export const median = function (numbers) {
   errorHandling(numbers)
@@ -102,14 +102,14 @@ export const median = function (numbers) {
 }
 
 /**
- * Function to return minimum value
+ * Returns the minimum value of a set of numbers.
  *
- * @param {number[]} numbers
+ * @param {number[]} numbers - The passed array of numbers.
  * @throws {TypeError} The passed argument is not an array.
  * @throws {Error} The passed array contains no elements.
  * @throws {TypeError} The passed array may only contain valid numbers.
+ * @returns {number} as the minimum value of the parameter.
  */
-
 export const minimum = function (numbers) {
   errorHandling(numbers)
   const minValue = Math.min(...numbers)
@@ -117,13 +117,13 @@ export const minimum = function (numbers) {
 }
 
 /**
- * Function to return the mode value
+ * Returns the mode value of a set of numbers sorted in a new array.
  *
- * @param {number[]} numbers
+ * @param {number[]} numbers - The passed array of numbers.
  * @throws {TypeError} The passed argument is not an array.
  * @throws {Error} The passed array contains no elements.
  * @throws {TypeError} The passed array may only contain valid numbers.
- * @returns {modeValues} - The mode value of the parameter
+ * @returns {number[]} as the mode value(s) of the parameter.
  */
 export const mode = function (numbers) {
   errorHandling(numbers)
@@ -150,13 +150,13 @@ export const mode = function (numbers) {
 }
 
 /**
- * Function to return the range value
+ * Returns the range value of a set of numbers.
  *
- * @param {number[]} numbers
+ * @param {number[]} numbers - The passed array of numbers.
  * @throws {TypeError} The passed argument is not an array.
  * @throws {Error} The passed array contains no elements.
  * @throws {TypeError} The passed array may only contain valid numbers.
- * @returns {rngValue} - The range value of the parameter.
+ * @returns {number} as the range value of the parameter.
  */
 export const range = function (numbers) {
   errorHandling(numbers)
@@ -165,19 +165,18 @@ export const range = function (numbers) {
 }
 
 /**
- * Function to return the standard deviation
+ * Function to return the standard deviation value of a set of numbers.
  *
- * @param {number[]} numbers
+ * @param {number[]} numbers - The passed array of numbers.
  * @throws {TypeError} The passed argument is not an array.
  * @throws {Error} The passed array contains no elements.
  * @throws {TypeError} The passed array may only contain valid numbers.
- * @returns {standardDeviationValue} The standard deviation value to be returned
+ * @returns {number} as the standard deviation value of the parameter.
  */
 export const standardDeviation = function (numbers) {
   errorHandling(numbers)
-  const meanValue = average(numbers)
   const deviationsSquared = numbers.map(function (number) {
-    const deviation = number - meanValue
+    const deviation = number - average(numbers)
     const devSquared = Math.pow(deviation, 2)
     return devSquared
   })
