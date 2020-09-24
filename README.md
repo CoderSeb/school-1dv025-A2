@@ -26,6 +26,7 @@ Modulen ska exportera funktioner som kan bestämma maximum- och minimumvärden, 
 * @author Johan Leitet <johan.leitet@lnu.se>
 * @author Mats Loock <mats.loock@lnu.se>
 * @author // TODO: Write your name here <Write your email address here>
+
 * @version 1.0.0
 */
 
