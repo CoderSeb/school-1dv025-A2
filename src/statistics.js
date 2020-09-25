@@ -131,7 +131,7 @@ export const mode = function (numbers) {
   let maxFrequency = 0
   let modeValues = []
 
-  for (const x in numbers) {
+  for (let x = 0; x < numbers.length; x++) {
     frequency[numbers[x]] = (frequency[numbers[x]] || 0) + 1
     if (frequency[numbers[x]] > maxFrequency) {
       maxFrequency = frequency[numbers[x]]
@@ -145,7 +145,7 @@ export const mode = function (numbers) {
   }
   modeValues = modeValues.map(Number)
   modeValues = modeValues.sort((a, b) => a - b)
-  console.log(modeValues)
+
   return modeValues
 }
 
